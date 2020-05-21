@@ -68,7 +68,7 @@ require 'header.php';
                                 <?php echo $product['name'];?>
                             </td>
                             <td>
-                                <?php echo $product['description'];?>
+                                <?php echo substr($product['description'],0,22);?>...
                             </td>
                             <td>
                                 <?php echo $product['stock'];?>
@@ -80,7 +80,9 @@ require 'header.php';
                                 <?php echo $product['created_at'];?>
                             </td>
                             <td>
-                                <a href="product_edit.php">Edit</a>
+                                <a href="product_edit.php?id=<?php echo $product['id']?>">
+                                    Edit
+                                </a>
                                 |
                                 <a href="product_del.php">Delete</a>
                             </td>

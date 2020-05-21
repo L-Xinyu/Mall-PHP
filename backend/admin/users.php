@@ -1,5 +1,6 @@
 <?php
 require '../db.connect.php';
+require '../tools.func.php';
 
 $prefix = getDBPrefix();
 $sql = "SELECT id,username,password,age,name,email,phone,created_at
@@ -26,6 +27,7 @@ require 'header.php';
                 </div>
             </div>
             <div class="card-body">
+                <p><?php if(hasInfo()) echo getInfo();?></p>
                 <div class="table-responsive">
                     <table class="table table-hover">
                         <thead class=" text-primary">
@@ -82,7 +84,8 @@ require 'header.php';
                                 <a href="user_edit.php?id=<?php echo $user['id']; ?> ">
                                     Edit</a>
                                 |
-                                <a href="">Delete</a>
+                                <a href="user_del.php?id=<?php echo $user['id']; ?>">
+                                    Delete</a>
                             </td>
                         </tr>
                         <?php endforeach;?>

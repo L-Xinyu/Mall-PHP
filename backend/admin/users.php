@@ -1,4 +1,12 @@
 <?php
+require '../db.connect.php';
+
+$prefix = getDBPrefix();
+$sql = "SELECT id,username,password,age,name,email,phone,created_at
+        FROM {$prefix}user ORDER BY created_at ASC";
+
+$res = query($sql);
+
 require 'header.php';
 ?>
 
@@ -47,27 +55,28 @@ require 'header.php';
                         </th>
                         </thead>
                         <tbody>
+                        <?php foreach ($res as $user): ?>
                         <tr>
                             <td>
-                                1
+                                <?php echo $user['id']; ?>
                             </td>
                             <td>
-                                zhangsan
+                                <?php echo $user['username']; ?>
                             </td>
                             <td>
-                                sansan
+                                <?php echo $user['name']; ?>
                             </td>
                             <td>
-                                30
+                                <?php echo $user['age']; ?>
                             </td>
                             <td>
-                                86267659@qq.com
+                                <?php echo $user['email']; ?>
                             </td>
                             <td>
-                                18888888888
+                                <?php echo $user['phone']; ?>
                             </td>
                             <td>
-                                2019-01-01 20:20:00
+                                <?php echo $user['created_at']; ?>
                             </td>
                             <td>
                                 <a href="user_edit.php">Edit</a>
@@ -75,6 +84,7 @@ require 'header.php';
                                 <a href="">Delete</a>
                             </td>
                         </tr>
+                        <?php endforeach;?>
                         </tbody>
                     </table>
                 </div>

@@ -79,7 +79,8 @@ require 'header.php';
                                 <?php echo $user['created_at']; ?>
                             </td>
                             <td>
-                                <a href="user_edit.php">Edit</a>
+                                <a href="user_edit.php?id=<?php echo $user['id']; ?> ">
+                                    Edit</a>
                                 |
                                 <a href="">Delete</a>
                             </td>

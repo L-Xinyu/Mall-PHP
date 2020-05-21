@@ -1,5 +1,11 @@
 <?php
+require '../db.connect.php';
+require '../tools.func.php';
 
+$prefix = getDBPrefix();
+$sql = "SELECT id,name,code,price,stock,description,created_at
+        FROM {$prefix}product ORDER BY created_at ASC";
+$res = query($sql);
 
 require 'header.php';
 ?>
@@ -20,6 +26,7 @@ require 'header.php';
 
             </div>
             <div class="card-body">
+                <p><?php if(hasInfo()) echo getInfo();?></p>
                 <div class="table-responsive">
                     <table class="table table-hover">
                         <thead class=" text-primary">
@@ -49,9 +56,36 @@ require 'header.php';
                         </th>
                         </thead>
                         <tbody>
+                        <?php foreach ($res as $product): ?>
                         <tr>
-
+                            <td>
+                                <?php echo $product['id'];?>
+                            </td>
+                            <td>
+                                <?php echo $product['code'];?>
+                            </td>
+                            <td>
+                                <?php echo $product['name'];?>
+                            </td>
+                            <td>
+                                <?php echo $product['description'];?>
+                            </td>
+                            <td>
+                                <?php echo $product['stock'];?>
+                            </td>
+                            <td>
+                                <?php echo $product['price'];?>
+                            </td>
+                            <td>
+                                <?php echo $product['created_at'];?>
+                            </td>
+                            <td>
+                                <a href="product_edit.php">Edit</a>
+                                |
+                                <a href="product_del.php">Delete</a>
+                            </td>
                         </tr>
+                        <?php endforeach;?>
                         </tbody>
                     </table>
                 </div>

@@ -50,6 +50,10 @@ $script = basename($_SERVER['SCRIPT_FILENAME']);
                     </a>
                 </li>
                 <li class="nav-item">
+                <li class="nav-item
+                <?php
+                echo substr($script,0,7) == 'product'?'active':'';
+                ?> ">
                     <a class="nav-link" href="products.php">
                         <i class="material-icons">library_books</i>
                         <p>Product</p>

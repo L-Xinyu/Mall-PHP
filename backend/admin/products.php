@@ -84,7 +84,9 @@ require 'header.php';
                                     Edit
                                 </a>
                                 |
-                                <a href="product_del.php">Delete</a>
+                                <a href="product_del.php?id=<?php echo $product['id']?>">
+                                    Delete
+                                </a>
                             </td>
                         </tr>
                         <?php endforeach;?>

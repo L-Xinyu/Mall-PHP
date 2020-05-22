@@ -1,6 +1,7 @@
 <?php
 require '../db.connect.php';
 require '../tools.func.php';
+require 'auth.php';
 
 $prefix = getDBPrefix();
 $sql = "SELECT id,username,password,age,name,email,phone,created_at

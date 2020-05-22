@@ -1,6 +1,7 @@
 <?php
 require '../db.connect.php';
 require '../tools.func.php';
+require 'auth.php';
 
 $id = intval($_GET['id']);
 if(empty($id)){
@@ -88,8 +89,8 @@ require 'header.php';
                                 <label>Description</label>
                                 <div class="form-group bmd-form-group">
                                     <textarea id="description" name="description"
-                                              value="<?php echo $current_product['description'];?>"
-                                              class="form-control" rows="5"></textarea>
+                                              class="form-control" rows="5"><?php echo $current_product['description'];?>
+                                    </textarea>
                                 </div>
                             </div>
                         </div>

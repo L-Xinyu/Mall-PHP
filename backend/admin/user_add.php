@@ -1,5 +1,6 @@
 <?php
 require '../tools.func.php';
+require 'auth.php';
 require '../db.connect.php';
 
 if (!empty($_POST['username'])){

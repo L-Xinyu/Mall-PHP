@@ -1,6 +1,7 @@
 <?php
 require '../db.connect.php';
 require '../tools.func.php';
+require 'auth.php';
 
 $id = intval($_GET['id']);
 

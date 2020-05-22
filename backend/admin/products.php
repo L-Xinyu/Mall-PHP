@@ -1,10 +1,10 @@
 <?php
 require '../db.connect.php';
 require '../tools.func.php';
+require 'auth.php';
 
 $prefix = getDBPrefix();
-$sql = "SELECT id,name,code,price,stock,description,created_at
-        FROM {$prefix}product ORDER BY created_at ASC";
+$sql = "SELECT * FROM {$prefix}product ORDER BY created_at ASC";
 $res = query($sql);
 
 require 'header.php';
@@ -68,7 +68,7 @@ require 'header.php';
                                 <?php echo $product['name'];?>
                             </td>
                             <td>
-                                <?php echo substr($product['description'],0,22);?>...
+                                <?php echo substr($product['description'],0,20).'...';?>
                             </td>
                             <td>
                                 <?php echo $product['stock'];?>

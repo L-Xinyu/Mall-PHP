@@ -1,7 +1,7 @@
 <?php
 require '../db.connect.php';
 require '../tools.func.php';
-
+require 'auth.php';
 if(!empty($_POST['name'])){
     $name = htmlentities($_POST['name']);
     $code = htmlentities($_POST['code']);
